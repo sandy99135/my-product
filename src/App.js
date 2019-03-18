@@ -120,15 +120,16 @@ const UserTable = props => {
 			<form 
 				onSubmit={event => {
 					event.preventDefault()
-					if(!isNaN(user.username)){
-						props.updateUser(user.id, user)
-						document.getElementById("aff").style.display="none"
-						document.getElementById("aff3").innerHTML=" "
-					}
-					else{
+					if(isNaN(user.username)||document.getElementById("in").value ==' '){
 						document.getElementById("aff").style.display="block"
 						document.getElementById("aff3").innerHTML="entrer un nombre"
 						document.getElementById("in").style.border="solid red"
+					}
+					else{
+					
+						props.updateUser(user.id, user)
+						document.getElementById("aff").style.display="none"
+						document.getElementById("aff3").innerHTML=" "
 					}
 					
 				}}
